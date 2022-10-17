@@ -7,9 +7,21 @@ function Keyboard() {
 
   return (
     <div className="keyboard">
-      <div className="keyLine1"></div>
-      <div className="keyLine2"></div>
-      <div className="keyLine3"></div>
+      <div className="keyLine1">
+        {keys1.map((key) => {
+          return <div> {key}</div>;
+        })}
+      </div>
+      <div className="keyLine2">
+        {keys2.map((key) => {
+          return <div> {key}</div>;
+        })}
+      </div>
+      <div className="keyLine3">
+        {keys3.map((key) => {
+          return <div> {key}</div>;
+        })}
+      </div>
     </div>
   );
 }
