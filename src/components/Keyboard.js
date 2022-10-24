@@ -23,7 +23,7 @@ function Keyboard() {
         {keys3.map((key) => {
           return <Key keyVal={key} />;
         })}
-        <Key keyVal={"DELETE"} nonLetter/>
+        <Key keyVal={"⌫"} nonLetter/>
       </div>
     </div>
   );
