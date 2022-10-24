@@ -17,14 +17,14 @@ nav {
   margin: 0;
   border-bottom: 1px solid grey;
   display: grid;
-  padding-top: 10px;
+  place-items: center;
 }
 
 nav h1 {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
   color: white;
-  font-size: 40px;
+  font-size: 45px;
 }
 .game {
   width: 100vw;
@@ -61,6 +61,12 @@ nav h1 {
   font-weight: bold;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.keyboard {
+  width: 700px;
+  height: 300px;
+  margin-top: 60px;
 }
 
 .keyLine1 {
