@@ -19,9 +19,11 @@ function Keyboard() {
         })}
       </div>
       <div className="keyLine3">
+        <Key keyVal={"ENTER"} nonLetter/>
         {keys3.map((key) => {
           return <Key keyVal={key} />;
         })}
+        <Key keyVal={"DELETE"} nonLetter/>
       </div>
     </div>
   );

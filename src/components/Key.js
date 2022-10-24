@@ -1,7 +1,12 @@
 import React from "react";
 
-function Key({ keyVal }) {
-  return <div className="key">{keyVal}</div>;
+// nonLetter includes enter and delete button
+function Key({ keyVal, nonLetter }) {
+  return (
+    <div className="key" id={nonLetter && "biggerBox"}>
+      {keyVal}
+    </div>
+  );
 }
 
 export default Key;
