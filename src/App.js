@@ -38,6 +38,7 @@ function App() {
   };
 
   const onEnter = () => {
+    // If user has not put in 5 letters, return
     if (currentAttempt.letterPosition !== 5) return;
     // Move down one row
     setCurrentAttempt({
