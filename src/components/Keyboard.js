@@ -16,6 +16,7 @@ function Keyboard() {
       onDelete();
     } else {
       keys1.forEach((key) => {
+        // lowercase both to fix capitalization error
         if (event.key.toLowerCase() === key.toLowerCase()) {
           onSelectLetter(key);
         }

@@ -1,8 +1,9 @@
 import "./App.css";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
-import { defaultBoard } from "./Words";
-import { createContext, useState } from "react";
+import { defaultBoard, generateWordSet } from "./Words";
+import { createContext, useEffect, useState } from "react";
+import { findAllInRenderedTree } from "react-dom/test-utils";
 
 export const AppContext = createContext();
 
@@ -12,8 +13,14 @@ function App() {
     attempt: 0,
     letterPosition: 0,
   });
-
+  const [wordSet, setWordSet] = useState(new Set());
   const correctWord = "RIGHT";
+
+  useEffect(() => {
+    generateWordSet().then((words) => {
+      setWordSet(words.wordSet);
+    });
+  }, []);
 
   const onSelectLetter = (keyVal) => {
     if (currentAttempt.letterPosition > 4) return;
@@ -42,11 +49,26 @@ function App() {
   const onEnter = () => {
     // If user has not put in 5 letters, return
     if (currentAttempt.letterPosition !== 5) return;
-    // Move down one row
-    setCurrentAttempt({
-      attempt: currentAttempt.attempt + 1,
-      letterPosition: 0,
-    });
+
+    let currentWord = "";
+    for (let i = 0; i < 5; i++) {
+      currentWord += board[currentAttempt.attempt][i];
+    }
+
+    if (wordSet.has(currentWord.toLowerCase)) {
+      // Move to next row
+      setCurrentAttempt({
+        attempt: currentAttempt.attempt + 1,
+        letterPosition: 0,
+      });
+    } else {
+      alert("Not in Word List");
+    }
+
+    if(currentWord == correctWord)
+    {
+      alert("You Won!");
+    }
   };
 
   return (
