@@ -2,8 +2,7 @@ import "./App.css";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
 import { defaultBoard, generateWordSet } from "./Words";
-import { createContext, useEffect, useState } from "react";
-import { findAllInRenderedTree } from "react-dom/test-utils";
+import { createContext, useState, useEffect } from "react";
 
 export const AppContext = createContext();
 
@@ -54,19 +53,14 @@ function App() {
     for (let i = 0; i < 5; i++) {
       currentWord += board[currentAttempt.attempt][i];
     }
-
-    if (wordSet.has(currentWord.toLowerCase)) {
-      // Move to next row
-      setCurrentAttempt({
-        attempt: currentAttempt.attempt + 1,
-        letterPosition: 0,
-      });
+    if (wordSet.has(currentWord.toLowerCase())) {
+      // Move down one row
+      setCurrentAttempt({ attempt: currentAttempt.attempt + 1, letter: 0 });
     } else {
-      alert("Not in Word List");
+      alert("Word not found!");
     }
 
-    if(currentWord == correctWord)
-    {
+    if (currentWord === correctWord) {
       alert("You Won!");
     }
   };
