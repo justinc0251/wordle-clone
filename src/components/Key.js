@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "../App";
 
 // nonLetter includes enter and delete button
-function Key({ keyVal, nonLetter }) {
+function Key({ keyVal, nonLetter, disabled }) {
   const {
     onDelete,
     onSelectLetter,
@@ -18,7 +18,7 @@ function Key({ keyVal, nonLetter }) {
     }
   };
   return (
-    <div className="key" id={nonLetter && "biggerBox"} onClick={selectLetter}>
+    <div className="key" id={nonLetter ? "biggerBox" : disabled && "disabled"} onClick={selectLetter}>
       {keyVal}
     </div>
   );

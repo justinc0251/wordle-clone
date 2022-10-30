@@ -13,6 +13,7 @@ function App() {
     letterPosition: 0,
   });
   const [wordSet, setWordSet] = useState(new Set());
+  const [disabledLetters, setDisabledLetters] = useState([]);
   const correctWord = "RIGHT";
 
   useEffect(() => {
@@ -54,7 +55,10 @@ function App() {
       currentWord += board[currentAttempt.attempt][i];
     }
     if (wordSet.has(currentWord.toLowerCase())) {
-      setCurrentAttempt({ attempt: currentAttempt.attempt + 1, letterPosition: 0 });
+      setCurrentAttempt({
+        attempt: currentAttempt.attempt + 1,
+        letterPosition: 0,
+      });
     } else {
       alert("Word not found");
     }
@@ -79,6 +83,8 @@ function App() {
           onEnter,
           onSelectLetter,
           correctWord,
+          setDisabledLetters,
+          disabledLetters,
         }}
       >
         <div className="game">
