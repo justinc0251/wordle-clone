@@ -54,10 +54,9 @@ function App() {
       currentWord += board[currentAttempt.attempt][i];
     }
     if (wordSet.has(currentWord.toLowerCase())) {
-      // Move down one row
-      setCurrentAttempt({ attempt: currentAttempt.attempt + 1, letter: 0 });
+      setCurrentAttempt({ attempt: currentAttempt.attempt + 1, letterPosition: 0 });
     } else {
-      alert("Word not found!");
+      alert("Word not found");
     }
 
     if (currentWord === correctWord) {
