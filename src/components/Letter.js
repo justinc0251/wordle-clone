@@ -3,7 +3,8 @@ import { AppContext } from "../App";
 
 function Letter({ letterPosition, attemptNumber }) {
   // Context api used for state management in order to keep track of letters on board
-  const { board, correctWord, currentAttempt, setDisabledLetters } = useContext(AppContext);
+  const { board, correctWord, currentAttempt, setDisabledLetters } =
+    useContext(AppContext);
   const letter = board[attemptNumber][letterPosition];
 
   const correct = correctWord[letterPosition] === letter;
