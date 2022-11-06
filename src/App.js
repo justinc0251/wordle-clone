@@ -19,11 +19,12 @@ function App() {
     gameOver: false,
     guessedWord: false,
   });
-  const correctWord = "RIGHT";
+  const [correctWord, setCorrectWord] = useState("");
 
   useEffect(() => {
     generateWordSet().then((words) => {
       setWordSet(words.wordSet);
+      setCorrectWord(words.randomWord);
     });
   }, []);
 
