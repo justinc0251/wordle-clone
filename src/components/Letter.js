@@ -8,7 +8,7 @@ function Letter({ letterPosition, attemptNumber }) {
   const letter = board[attemptNumber][letterPosition];
 
   const correct = correctWord.toUpperCase()[letterPosition] === letter;
-  const almost = !correct && letter !== "" && correctWord.includes(letter);
+  const almost = !correct && letter !== "" && correctWord.toUpperCase().includes(letter);
 
   const letterState =
     // Show colors of letters after user has inputted at least one guess
