@@ -86,6 +86,7 @@ function App() {
       </nav>
       <AppContext.Provider
         value={{
+          // Everything inside provider will have access to states
           board,
           setBoard,
           currentAttempt,
