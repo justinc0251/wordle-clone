@@ -115,6 +115,7 @@ ascot
 ashen
 aside
 askew
+aster
 assay
 asset
 atoll
